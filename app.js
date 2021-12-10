@@ -18,6 +18,8 @@ app.use(express.json());
 
 // ROUTES
 app.use("/", (req, res) => res.json({ message: "Works" }));
+app.use("/api/games", require("./routes/game"));
+app.use("/api/comments", require("./routes/comment"));
 
 // PORT AND LISTEN
 const port = process.env.PORT || 5000;

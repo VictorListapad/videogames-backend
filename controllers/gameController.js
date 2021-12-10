@@ -6,7 +6,7 @@ const getAllGames = async (req, res) => {
   try {
     return res.status(200).json(games);
   } catch (error) {
-    return res.status(500).json({ message: `Couldn't retreive games` });
+    return res.status(500).json({ message: `Couldn't get games` });
   }
 };
 
@@ -17,7 +17,7 @@ const getGameById = async (req, res) => {
   try {
     return res.status(200).json(game);
   } catch (error) {
-    return res.status(500).json(`Couldn't retreive game`);
+    return res.status(500).json(`Couldn't get game`);
   }
 };
 
@@ -52,4 +52,12 @@ const deleteGame = async (req, res) => {
   } catch (error) {
     return res.status(500).json({ message: `Couldn't delete the game` });
   }
+};
+
+module.exports = {
+  getAllGames,
+  getGameById,
+  createGame,
+  updateGame,
+  deleteGame,
 };
