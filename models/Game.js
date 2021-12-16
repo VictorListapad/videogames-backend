@@ -66,7 +66,6 @@ const GameSchema = Schema({
   },
   review: {
     type: Number,
-    required: true,
   },
 });
 
