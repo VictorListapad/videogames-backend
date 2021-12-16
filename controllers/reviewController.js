@@ -21,6 +21,8 @@ const getReviewById = async (req, res) => {
 };
 
 const createReview = async (req, res) => {
+  // await Review.findybId({userId: userId, gameId: gameId})
+
   const reviewToCreate = await Review.create(req.body);
   try {
     return res.status(201).json(reviewToCreate);
