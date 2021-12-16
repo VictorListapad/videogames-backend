@@ -33,10 +33,6 @@ const UserSchema = Schema({
     enum: ["ADMIN", "USER"],
     default: "USER",
   },
-  google: {
-    type: Boolean,
-    default: false,
-  },
 });
 
 module.exports = model("User", UserSchema);

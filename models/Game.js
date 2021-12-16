@@ -11,6 +11,11 @@ const GameSchema = Schema({
     required: true,
     trim: true,
   },
+  platform: {
+    type: [],
+    required: true,
+    ref: "Platform",
+  },
   publisher: {
     type: String,
     required: true,
@@ -36,18 +41,22 @@ const GameSchema = Schema({
   },
   screenShot1: {
     type: String,
+    required: true,
     trim: true,
   },
   screenShot2: {
     type: String,
+    required: true,
     trim: true,
   },
   screenShot3: {
     type: String,
+    required: true,
     trim: true,
   },
   screenShot4: {
     type: String,
+    required: true,
     trim: true,
   },
   description: {
@@ -55,9 +64,9 @@ const GameSchema = Schema({
     trim: true,
     require: true,
   },
-  reviews: {
-    type: [],
-    ref: "Review",
+  review: {
+    type: Number,
+    required: true,
   },
 });
 

@@ -1,8 +1,11 @@
 const Comment = require("../models/Comment");
 
 // GET ALL COMMENTS
-const getAllComments = async (req, res) => {
-  const comments = await Comment.find();
+const getAllCommentsFromGame = async (req, res) => {
+  const { id } = req.params;
+  const comments = await Comment.find({ gameId: id })
+    .populate("gameId", "title")
+    .populate("author");
   try {
     return res.status(200).json(comments);
   } catch (error) {
@@ -56,7 +59,7 @@ const deleteComment = async (req, res) => {
 };
 
 module.exports = {
-  getAllComments,
+  getAllCommentsFromGame,
   getCommentById,
   createComment,
   updateComment,

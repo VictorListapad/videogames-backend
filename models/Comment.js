@@ -5,16 +5,21 @@ const CommentSchema = Schema({
     type: Schema.Types.ObjectId,
     requred: true,
     trim: true,
+    ref: "User",
   },
   text: {
     type: String,
     required: true,
     trim: true,
   },
+  date: {
+    type: Date,
+  },
   gameId: {
     type: Schema.Types.ObjectId,
     required: true,
     trim: true,
+    ref: "Game",
   },
 });
 

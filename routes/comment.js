@@ -1,6 +1,6 @@
 const express = require("express");
 const {
-  getAllComments,
+  getAllCommentsFromGame,
   getCommentById,
   createComment,
   updateComment,
@@ -8,7 +8,7 @@ const {
 } = require("../controllers/commentController");
 const router = express.Router();
 
-router.get("/", getAllComments);
+router.get("/game/:id", getAllCommentsFromGame);
 router.get("/comment/:id", getCommentById);
 router.post("/comment", createComment);
 router.put("/comment/:id", updateComment);

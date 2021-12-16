@@ -13,7 +13,7 @@ const getAllGames = async (req, res) => {
 // GET ONE GAME
 const getGameById = async (req, res) => {
   const { id } = req.params;
-  const game = await Game.findById(id);
+  const game = await Game.findById(id).populate("genre").populate("platform");
   try {
     return res.status(200).json(game);
   } catch (error) {
