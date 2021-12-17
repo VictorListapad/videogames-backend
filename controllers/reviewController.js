@@ -20,9 +20,23 @@ const getReviewById = async (req, res) => {
   }
 };
 
-const createReview = async (req, res) => {
-  // await Review.findybId({userId: userId, gameId: gameId})
+const getAllReviewsForGame = async (req, res) => {
+  const { id } = req.params;
+  const reviews = await Review.find({ game: id });
+  try {
+    console.log(reviews);
+    return res.status(200).json(reviews);
+  } catch (error) {
+    return res.status(500).json({ message: `Couldn't get reviews` });
+  }
+};
 
+const createReview = async (req, res) => {
+  const { userId, gameId } = req.params;
+  const reviewToCheck = await Review.find({ author: userId, game: gameId });
+  if (reviewToCheck) {
+    return res.status(500).json({ message: `Couldn't create review` });
+  }
   const reviewToCreate = await Review.create(req.body);
   try {
     return res.status(201).json(reviewToCreate);
@@ -58,4 +72,5 @@ module.exports = {
   createReview,
   updateReview,
   deleteReview,
+  getAllReviewsForGame,
 };

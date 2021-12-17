@@ -64,9 +64,6 @@ const GameSchema = Schema({
     trim: true,
     require: true,
   },
-  review: {
-    type: Number,
-  },
 });
 
 module.exports = model("Game", GameSchema);
